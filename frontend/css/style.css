@@ -1,0 +1,225 @@
+/* Fondo general con imagen */
+body {
+    margin: 0;
+    font-family: 'Josefin Sans';
+    background: url('../assets/futbol.png') no-repeat center center/cover;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+    position: relative;
+  }
+  
+  /* Capa oscura encima del fondo */
+  .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+  
+  /* Contenido principal */
+  .content {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  /* Logo centrado */
+  .logo {
+    width: 150px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .name {
+    color: rgb(19, 208, 16);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    margin-top: 30px;
+  }
+  
+  /* Título principal */
+  h1 {
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+    margin-top: -30px;
+  }
+  
+  /* Barra de filtros */
+  .filters {
+    background: rgba(255, 255, 255, 0.85);
+    color: black;
+    border-radius: 50px;
+    padding: 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    max-width: 800px;
+    width: 90%;
+  }
+  
+  /* Inputs y selects */
+  .filters input,
+  .filters select {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: black;
+  }
+  
+/* Botón lupa */
+.search-btn {
+    background: rgb(19, 208, 16);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .search-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .search-btn img {
+    width: 22px;
+    height: 22px;
+  }
+
+ /* NAVBAR BASE */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+/* Elementos */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-left i {
+  font-size: 24px;
+  color: white;
+}
+
+
+/* Enlace derecho */
+.nav-right {
+  margin-right: 20px;
+  
+}
+
+/* Menú toggle (hamburguesa) */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  display: none;
+  cursor: pointer;
+}
+
+.nav-right .add-court-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-right .add-court-link:hover {
+  color: #32cd32;
+}
+  
+  /* Adaptabilidad móvil */
+  @media (max-width: 600px) {
+    .name {
+        font-size: 1.3rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .filters {
+      gap: 10px;
+      border-radius: 20px;
+      padding: 15px;
+    }
+  
+    .filters input,
+    .filters select {
+      width: 100%;
+      font-size: 0.95rem;
+    }
+  
+    .filters button {
+      width: 100%;
+      border-radius: 20px;
+    }
+  
+    .logo {
+      width: 120px;
+    }
+    .menu-toggle {
+      display: block;
+    }
+  
+    .nav-right {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: rgba(0, 0, 0, 0.85);
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0;
+    }
+  
+    .nav-right.show {
+      display: flex;
+    }
+  
+    .nav-right .add-court-link {
+      color: white;
+      padding: 10px;
+      font-size: 18px;
+    }
+  
+    .nav-right .add-court-link:hover {
+      color: #32cd32;
+    }
+  }
+  

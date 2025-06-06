@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SportX</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+</head>
+<!-- Barra de navegación responsive -->
+<nav class="navbar">
+  <div class="nav-left">
+    <i class="fas fa-user"></i>
+  </div>
+  <div class="navbar-center">
+    <img src="sportx_logo.png" alt="Sport X" class="name">
+  </div>
+  <button class="menu-toggle" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="nav-right">
+    <a href="agrega-tu-cancha.html" class="add-court-link">Agrega tu cancha</a>
+  </div>
+</nav>
+
+<!-- Cuerpo -->
+<body>
+  <div class="overlay"></div>
+
+  <div class="content">
+  
+    <!-- TÍTULO -->
+    <h1>Encuentra la cancha perfecta y asegura tu lugar hoy.</h1>
+
+    <!-- FILTROS -->
+    <div class="filters">
+        <input type="text" placeholder="Buscar ciudad" />
+        <select>
+          <option>Elige deporte</option>
+          <option>Fútbol</option>
+          <option>Vóley</option>
+          <option>Básquet</option>
+        </select>
+        <input type="date" />
+        <select id="hora">
+            <option value="">Elige hora</option>
+        </select>
+        <button id="buscarBtn" class="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
