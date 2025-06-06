@@ -34,16 +34,16 @@
     <h1>Encuentra la cancha perfecta y asegura tu lugar hoy.</h1>
 
     <!-- FILTROS -->
-    <div class="filters">
-        <input type="text" placeholder="Buscar ciudad" />
-        <select>
+    <div class="filters" id="form-busqueda">
+        <input type="text" id="ubicacion" placeholder="Buscar ciudad" required />
+        <select id="tipo-cancha" required>
           <option>Elige deporte</option>
           <option>Fútbol</option>
           <option>Vóley</option>
           <option>Básquet</option>
         </select>
-        <input type="date" />
-        <select id="hora">
+        <input type="date" id="fecha" required />
+        <select id="hora" required>
             <option value="">Elige hora</option>
         </select>
         <button id="buscarBtn" class="search-btn">

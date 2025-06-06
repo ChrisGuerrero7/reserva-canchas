@@ -6,24 +6,30 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   
     // Asignar evento al botón de búsqueda
-    document.getElementById("buscarBtn").addEventListener("click", buscar);
+    document.getElementById("buscarBtn").addEventListener("click", async function(e) {
+      e.preventDefault();
+    
+      const fecha = document.getElementById("fecha").value;
+      const ubicacion = document.getElementById("ubicacion").value;
+      const tipo_cancha = document.getElementById("tipo-cancha").value;
+      const hora = document.getElementById("hora").value;
+    
+      const formData = new URLSearchParams();
+      formData.append("fecha", fecha);
+      formData.append("ubicacion", ubicacion);
+      formData.append("tipo_cancha", tipo_cancha);
+      formData.append("hora", hora);
+    
+      const response = await fetch("http://localhost:8000/api/buscar", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData
+      });
+    
+      const data = await response.json();
+      alert(data.mensaje);  // Muestra confirmación
+    });
   });
-  
-  function buscar() {
-    const ciudad = document.querySelector('input[type="text"]').value;
-    const deporte = document.querySelector('select').value;
-    const fecha = document.querySelector('input[type="date"]').value;
-    const hora = document.querySelectorAll('select')[1].value;
-  
-    // Por ahora, solo mostrar los datos en consola
-    console.log("Buscando cancha...");
-    console.log("Ciudad:", ciudad);
-    console.log("Deporte:", deporte);
-    console.log("Fecha:", fecha);
-    console.log("Hora:", hora);
-  
-    alert(`Buscando canchas para:\n📍 ${ciudad}\n🏅 ${deporte}\n📅 ${fecha}\n🕒 ${hora}`);
-  }
 
 // Toggle del menú en móviles
 const toggleBtn = document.querySelector(".menu-toggle");
@@ -32,3 +38,4 @@ const navRight = document.querySelector(".nav-right");
 toggleBtn.addEventListener("click", () => {
   navRight.classList.toggle("show");
 });
+
