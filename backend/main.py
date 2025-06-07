@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import FileResponse
 from routers import buscador
 from routers.buscador import guardar_datos
 from fastapi.middleware.cors import CORSMiddleware
