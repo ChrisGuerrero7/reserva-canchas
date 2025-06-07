@@ -1,9 +1,4 @@
-# Ignorar imágenes
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.webp
+
 __pycache__/
 *.pyc
 .env
