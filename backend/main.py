@@ -2,6 +2,8 @@ from fastapi import FastAPI, Form
 from fastapi.responses import JSONResponse
 from routers.buscador import guardar_datos
 from fastapi.middleware.cors import CORSMiddleware
+import csv
+import os
 app = FastAPI()
 
 # Lista de orígenes permitidos (agrega tu frontend aquí)
@@ -32,3 +34,15 @@ async def buscar(
         return JSONResponse(content={"mensaje": "Datos recibidos correctamente"}, status_code=200)
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
+
+@app.get("/api/ver-datos")
+def ver_datos_csv():
+    archivo = "datos_busqueda.csv"
+    if not os.path.exists(archivo):
+        return JSONResponse(content={"mensaje": "Archivo no encontrado"}, status_code=404)
+    
+    with open(archivo, newline='') as f:
+        lector = csv.DictReader(f)
+        datos = list(lector)
+
+    return {"datos": datos}
