@@ -1,9 +1,13 @@
 from fastapi import FastAPI, Form
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 from routers.buscador import guardar_datos
 from fastapi.middleware.cors import CORSMiddleware
 import csv
 import os
+
+# Ruta absoluta al archivo CSV
+csv_path = os.path.join(os.path.dirname(__file__), "data", "datos_busqueda.csv")
+
 app = FastAPI()
 
 # Lista de orígenes permitidos (agrega tu frontend aquí)
@@ -29,20 +33,34 @@ async def buscar(
     hora: str = Form(...)
 ):
     try:
-        # Simula guardado de datos
-        print("Recibido:", fecha, ubicacion, tipo_cancha, hora)
+        data = {
+            "fecha": fecha,
+            "ubicacion": ubicacion,
+            "tipo_cancha": tipo_cancha,
+            "hora": hora
+        }
+        print("Recibido:", data)
+
+        guardar_datos(data)  # ✅ Guarda en el archivo CSV
+
         return JSONResponse(content={"mensaje": "Datos recibidos correctamente"}, status_code=200)
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
 
 @app.get("/api/ver-datos")
 def ver_datos_csv():
-    archivo = "datos_busqueda.csv"
-    if not os.path.exists(archivo):
+    if not os.path.exists(csv_path):
         return JSONResponse(content={"mensaje": "Archivo no encontrado"}, status_code=404)
     
-    with open(archivo, newline='') as f:
+    with open(csv_path, newline='') as f:
         lector = csv.DictReader(f)
         datos = list(lector)
 
     return {"datos": datos}
+
+@app.get("/api/descargar-csv")
+def descargar_csv():
+    if os.path.exists(csv_path):
+        return FileResponse(csv_path, media_type='text/csv', filename="datos_busqueda.csv")
+    else:
+        return JSONResponse(content={"error": "Archivo no encontrado"}, status_code=404)

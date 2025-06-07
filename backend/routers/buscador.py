@@ -1,8 +1,10 @@
 import csv
 import os
 
+# Ruta absoluta al archivo CSV
+archivo = os.path.join(os.path.dirname(__file__), "data", "datos_busqueda.csv")
+
 def guardar_datos(data):
-    archivo = "datos_busqueda.csv"
     existe = os.path.isfile(archivo)
     columnas = ["fecha", "hora", "ubicacion", "tipo_cancha"]
     with open(archivo, mode='a', newline='') as f:
