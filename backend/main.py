@@ -6,7 +6,7 @@ import csv
 import os
 
 # Ruta absoluta al archivo CSV
-csv_path = os.path.join(os.path.dirname(__file__), "data", "datos_busqueda.csv")
+csv_path = "./data/datos_busqueda.csv"
 
 app = FastAPI()
 

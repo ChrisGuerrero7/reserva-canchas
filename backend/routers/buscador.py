@@ -1,14 +1,17 @@
 import csv
 import os
 
-# Ruta absoluta al archivo CSV
-archivo = os.path.join(os.path.dirname(__file__), "data", "datos_busqueda.csv")
 
 def guardar_datos(data):
-    existe = os.path.isfile(archivo)
-    columnas = ["fecha", "hora", "ubicacion", "tipo_cancha"]
-    with open(archivo, mode='a', newline='') as f:
-        escritor = csv.DictWriter(f, fieldnames=columnas)
-        if not existe:
+    ruta_carpeta = "./data"
+    ruta_archivo = os.path.join(ruta_carpeta, "datos_busqueda.csv")
+    os.makedirs(ruta_carpeta, exist_ok=True)
+
+    campos = ["fecha", "hora", "ubicacion", "tipo_cancha"]
+    archivo_existe = os.path.isfile(ruta_archivo)
+
+    with open(ruta_archivo, mode='a', newline='', encoding='utf-8') as archivo:
+        escritor = csv.DictWriter(archivo, fieldnames=campos)
+        if not archivo_existe:
             escritor.writeheader()
         escritor.writerow(data)
