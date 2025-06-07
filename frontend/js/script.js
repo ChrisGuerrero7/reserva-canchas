@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const tipo_cancha = document.getElementById("tipo-cancha").value;
       const hora = document.getElementById("hora").value;
     
-      const formData = new URLSearchParams();
+      const formData = new FormData();
       formData.append("fecha", fecha);
       formData.append("ubicacion", ubicacion);
       formData.append("tipo_cancha", tipo_cancha);
@@ -27,11 +27,12 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     
         const result = await response.json();
-        alert(result.mensaje);
-      } catch (error) {
-        console.error("Error en la solicitud:", error);
-        alert("Ocurrió un error al enviar los datos.");
-      }
+        alert(result.mensaje || result.error);
+        } catch (error) {
+          console.error("Error al hacer fetch:", error);
+          alert("No se pudo conectar con el backend.");
+        }
+      });
   });
 
 // Toggle del menú en móviles
@@ -40,6 +41,5 @@ const navRight = document.querySelector(".nav-right");
 
 toggleBtn.addEventListener("click", () => {
   navRight.classList.toggle("show");
-});
 });
 

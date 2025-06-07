@@ -1,6 +1,5 @@
 from fastapi import FastAPI, Form
-from fastapi.responses import FileResponse
-from routers import buscador
+from fastapi.responses import JSONResponse
 from routers.buscador import guardar_datos
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
@@ -21,17 +20,15 @@ app.add_middleware(
 )
 
 @app.post("/api/buscar")
-async def buscar_cancha(
+async def buscar(
     fecha: str = Form(...),
     ubicacion: str = Form(...),
     tipo_cancha: str = Form(...),
     hora: str = Form(...)
 ):
-    data = {
-        "fecha": fecha,
-        "ubicacion": ubicacion,
-        "tipo_cancha": tipo_cancha,
-        "hora": hora
-    }
-    guardar_datos(data)
-    return {"mensaje": "Datos guardados correctamente"}
+    try:
+        # Simula guardado de datos
+        print("Recibido:", fecha, ubicacion, tipo_cancha, hora)
+        return JSONResponse(content={"mensaje": "Datos recibidos correctamente"}, status_code=200)
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
