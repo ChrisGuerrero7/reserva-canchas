@@ -1,10 +1,11 @@
-from fastapi import APIRouter, Form
-from utils.save_to_csv import guardar_en_csv
+import csv
+import os
 
-router = APIRouter()
-
-@router.post("/api/buscar")
-async def buscar(request: Request):
-    data = await request.json()
-    guardar_en_csv(data)
-    return {"mensaje": "Datos guardados exitosamente"}
+def guardar_datos(data):
+    archivo = "datos_busqueda.csv"
+    existe = os.path.isfile(archivo)
+    with open(archivo, mode='a', newline='') as f:
+        escritor = csv.DictWriter(f, fieldnames=["deporte", "fecha", "hora", "correo"])
+        if not existe:
+            escritor.writeheader()
+        escritor.writerow(data)

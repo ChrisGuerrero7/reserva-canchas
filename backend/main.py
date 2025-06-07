@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from routers import buscador
+from routers.buscador import guardar_datos
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
@@ -18,9 +19,12 @@ app.add_middleware(
     allow_headers=["*"],              # Headers permitidos
 )
 
-# ✅ RUTA para guardar los datos enviados desde el frontend
 @app.post("/api/buscar")
-async def buscar(request: Request):
+async def buscar_cancha(request: Request):
     data = await request.json()
     guardar_datos(data)
-    return {"mensaje": "Datos guardados exitosamente"}
+    return {"mensaje": "Datos recibidos"}
+
+@app.get("/api/descargar-csv")
+def descargar_csv():
+    return FileResponse("datos_busqueda.csv", media_type='text/csv', filename="datos_busqueda.csv")
