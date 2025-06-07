@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from backend.routers import buscador
+from routers import buscador
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
