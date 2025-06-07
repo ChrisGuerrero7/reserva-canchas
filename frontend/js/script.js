@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
       formData.append("tipo_cancha", tipo_cancha);
       formData.append("hora", hora);
     
-      const response = await fetch("http://localhost:8000/api/buscar", {
+      const response = await fetch("https://fastapi-backend-ivik.onrender.com/api/buscar", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData
