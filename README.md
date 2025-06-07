@@ -18,26 +18,26 @@ Este proyecto permite a los usuarios buscar canchas deportivas disponibles y res
 
 ## 🧱 Estructura del proyecto
 
-/cancha-reservas
-│
-├── backend/
-│   ├── main.py                      # Archivo principal de FastAPI
-│   ├── routers/                     # Rutas organizadas por módulo
-│   │   └── buscador.py
-│   ├── database/                    # Conexión a la BD (ej: csv)
-│   │   └── datos.csv
-│   └── utils/                       # Funciones auxiliares (ej: validación, envío de correo)
-│       └── save_to_csv.py
-│
-├── frontend/
-│   ├── index.html                   # Página principal con buscador
-│   ├── css/
-│   │   └── style.css                # Estilos globales
-│   ├── js/
-│   │   └── script.js                   # Lógica de búsqueda y navegación
-│   └── assets/                      # Imágenes, íconos, logos
-│       └── futbol.png
-│
-├── .gitignore
-├── README.md
-└── requirements.txt                # Dependencias del backend (FastAPI, etc)
+/cancha-reservas  
+│  
+├── backend/  
+│   ├── main.py                      # Archivo principal de FastAPI  
+│   ├── routers/                     # Rutas organizadas por módulo  
+│   │   └── buscador.py  
+│   ├── database/                    # Conexión a la BD (ej: csv)  
+│   │   └── datos.csv  
+│   └── utils/                       # Funciones auxiliares (ej: validación, envío de correo)  
+│       └── save_to_csv.py  
+│  
+├── frontend/  
+│   ├── index.html                   # Página principal con buscador  
+│   ├── css/  
+│   │   └── style.css                # Estilos globales  
+│   ├── js/  
+│   │   └── script.js                   # Lógica de búsqueda y navegación  
+│   └── assets/                      # Imágenes, íconos, logos  
+│       └── futbol.png  
+│  
+├── .gitignore  
+├── README.md  
+└── requirements.txt                # Dependencias del backend (FastAPI, etc)  
