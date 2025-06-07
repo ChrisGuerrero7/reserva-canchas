@@ -12,11 +12,15 @@ origins = [
 # Habilitar CORS para frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,            # Orígenes permitidos
+    allow_origins=["*"],            # Orígenes permitidos
     allow_credentials=True,
     allow_methods=["*"],              # Métodos permitidos (GET, POST, etc.)
     allow_headers=["*"],              # Headers permitidos
 )
 
-# Incluir rutas
-app.include_router(buscador.router)
+# ✅ RUTA para guardar los datos enviados desde el frontend
+@app.post("/api/buscar")
+async def buscar(request: Request):
+    data = await request.json()
+    guardar_datos(data)
+    return {"mensaje": "Datos guardados exitosamente"}
