@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Form
 from fastapi.responses import FileResponse
 from routers import buscador
 from routers.buscador import guardar_datos
@@ -21,11 +21,17 @@ app.add_middleware(
 )
 
 @app.post("/api/buscar")
-async def buscar_cancha(request: Request):
-    data = await request.json()
+async def buscar_cancha(
+    fecha: str = Form(...),
+    ubicacion: str = Form(...),
+    tipo_cancha: str = Form(...),
+    hora: str = Form(...)
+):
+    data = {
+        "fecha": fecha,
+        "ubicacion": ubicacion,
+        "tipo_cancha": tipo_cancha,
+        "hora": hora
+    }
     guardar_datos(data)
-    return {"mensaje": "Datos recibidos"}
-
-@app.get("/api/descargar-csv")
-def descargar_csv():
-    return FileResponse("datos_busqueda.csv", media_type='text/csv', filename="datos_busqueda.csv")
+    return {"mensaje": "Datos guardados correctamente"}

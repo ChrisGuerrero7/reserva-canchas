@@ -20,15 +20,18 @@ window.addEventListener("DOMContentLoaded", () => {
       formData.append("tipo_cancha", tipo_cancha);
       formData.append("hora", hora);
     
-      const response = await fetch("https://fastapi-backend-ivik.onrender.com/api/buscar", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData
-      });
+      try {
+        const response = await fetch("https://fastapi-backend-ivik.onrender.com/api/buscar", {
+          method: "POST",
+          body: formData // ¡Sin headers! El navegador los gestiona automáticamente
+        });
     
-      const data = await response.json();
-      alert(data.mensaje);  // Muestra confirmación
-    });
+        const result = await response.json();
+        alert(result.mensaje);
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+        alert("Ocurrió un error al enviar los datos.");
+      }
   });
 
 // Toggle del menú en móviles
@@ -37,5 +40,6 @@ const navRight = document.querySelector(".nav-right");
 
 toggleBtn.addEventListener("click", () => {
   navRight.classList.toggle("show");
+});
 });
 
