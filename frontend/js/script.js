@@ -21,7 +21,8 @@ window.addEventListener("DOMContentLoaded", () => {
       formData.append("hora", hora);
     
       try {
-        const response = await fetch("https://fastapi-backend-ivik.onrender.com/api/buscar", {
+        //const response = await fetch("https://fastapi-backend-ivik.onrender.com/api/buscar", {
+        const response = await fetch("https://127.0.0.1:8000/api/buscar", {
           method: "POST",
           body: formData // ¡Sin headers! El navegador los gestiona automáticamente
         });
