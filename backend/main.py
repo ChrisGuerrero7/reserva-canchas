@@ -6,7 +6,8 @@ import csv
 import os
 
 # Ruta absoluta al archivo CSV
-csv_path = "./data/datos_busqueda.csv"
+ruta_base = os.path.dirname(__file__)               
+csv_path = os.path.join(ruta_base, "data", "datos_busqueda.csv")
 
 app = FastAPI()
 
@@ -50,6 +51,7 @@ async def buscar(
 @app.get("/api/ver-datos")
 def ver_datos_csv():
     if not os.path.exists(csv_path):
+        print(csv_path)
         return JSONResponse(content={"mensaje": "Archivo no encontrado"}, status_code=404)
     
     with open(csv_path, newline='') as f:

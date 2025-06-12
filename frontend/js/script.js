@@ -22,17 +22,22 @@ window.addEventListener("DOMContentLoaded", () => {
     
       try {
         //const response = await fetch("https://fastapi-backend-ivik.onrender.com/api/buscar", {
-        const response = await fetch("https://127.0.0.1:8000/api/buscar", {
-          method: "POST",
-          body: formData // ¡Sin headers! El navegador los gestiona automáticamente
-        });
+          const backendURL = window.location.hostname.includes("localhost")
+          ? "http://127.0.0.1:8000/api/buscar"    // Local
+          : "https://fastapi-backend-ivik.onrender.com/api/buscar"; // Producción
+        
+          // Y úsalo en fetch
+          const response = await fetch(backendURL, {
+            method: "POST",
+            body: formData
+          });
     
         const result = await response.json();
         alert(result.mensaje || result.error);
-        } catch (error) {
-          console.error("Error al hacer fetch:", error);
-          alert("No se pudo conectar con el backend.");
-        }
+      } catch (error) {
+        console.error("Error al hacer fetch:", error);
+        alert("No se pudo conectar con el backend.");
+      }
       });
   });
 
