@@ -56,3 +56,20 @@ toggleBtn.addEventListener("click", () => {
   navRight.classList.toggle("show");
 });
 
+// Mostrar placeholder personalizado en el campo de fecha solo en móvil
+window.addEventListener('DOMContentLoaded', function() {
+  var fechaInput = document.getElementById('fecha');
+  if (fechaInput && window.innerWidth <= 768) {
+    fechaInput.setAttribute('placeholder', 'Elige tu fecha');
+    fechaInput.classList.add('placeholder-visible');
+    // Para navegadores que no muestran placeholder en date, mostrar texto gris si está vacío
+    fechaInput.addEventListener('input', function() {
+      if (fechaInput.value) {
+        fechaInput.classList.remove('placeholder-visible');
+      } else {
+        fechaInput.classList.add('placeholder-visible');
+      }
+    });
+  }
+});
+

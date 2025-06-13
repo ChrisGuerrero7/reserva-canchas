@@ -246,28 +246,31 @@ body {
     .filters input,
     .filters select {
         width: 100%;
-        font-size: 0.95rem;
-        padding: 12px;
-    }
-
-    .filters input[type="date"],
-    .filters select {
-        width: 100%;
-        font-size: 0.95rem;
-        padding: 12px;
-        height: 45px;
+        font-size: 1.05rem;
+        padding: 16px 14px;
+        height: 54px;
         box-sizing: border-box;
+        border-radius: 16px;
     }
-
+    .filters input[type="date"] {
+        width: 100%;
+        font-size: 1.05rem;
+        padding: 16px 14px;
+        height: 54px;
+        box-sizing: border-box;
+        border-radius: 16px;
+        color: #555;
+    }
     .search-btn {
         width: 100%;
-        height: 45px;
+        height: 54px;
         border-radius: 20px;
         margin-top: 5px;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
+        font-size: 1.1rem;
     }
 
     .search-btn i {
@@ -331,6 +334,23 @@ body {
         width: 100%;
         padding: 12px;
         font-size: 1rem;
+    }
+
+    .filters input[type="date"].placeholder-visible::-webkit-input-placeholder {
+        color: #888;
+        opacity: 1;
+    }
+    .filters input[type="date"].placeholder-visible::-moz-placeholder {
+        color: #888;
+        opacity: 1;
+    }
+    .filters input[type="date"].placeholder-visible:-ms-input-placeholder {
+        color: #888;
+        opacity: 1;
+    }
+    .filters input[type="date"].placeholder-visible::placeholder {
+        color: #888;
+        opacity: 1;
     }
   }
   
