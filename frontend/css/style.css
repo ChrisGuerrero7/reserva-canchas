@@ -246,20 +246,69 @@ body {
     .filters input,
     .filters select {
         width: 100%;
-        font-size: 1.05rem;
-        padding: 16px 14px;
-        height: 54px;
+        font-size: 1.08rem;
+        padding: 18px 14px 18px 14px;
+        min-height: 58px;
+        height: 58px;
+        line-height: 1.2;
         box-sizing: border-box;
         border-radius: 16px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-clip: padding-box;
     }
     .filters input[type="date"] {
         width: 100%;
-        font-size: 1.05rem;
-        padding: 16px 14px;
-        height: 54px;
+        font-size: 1.08rem;
+        padding: 18px 14px 18px 14px;
+        min-height: 58px;
+        height: 58px;
+        line-height: 1.2;
         box-sizing: border-box;
         border-radius: 16px;
         color: #555;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-clip: padding-box;
+        position: relative;
+        z-index: 2;
+    }
+    .fecha-wrapper {
+        position: relative;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .fecha-label {
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+        font-size: 1.05rem;
+        pointer-events: none;
+        transition: 0.2s all;
+        z-index: 3;
+        background: transparent;
+    }
+    .fecha-wrapper input[type="date"]:focus + .fecha-label,
+    .fecha-wrapper input[type="date"]:not(:placeholder-shown) + .fecha-label,
+    .fecha-wrapper input[type="date"]:valid + .fecha-label {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .fecha-wrapper input[type="date"]::-webkit-input-placeholder {
+        color: transparent;
+    }
+    .fecha-wrapper input[type="date"]::-moz-placeholder {
+        color: transparent;
+    }
+    .fecha-wrapper input[type="date"]:-ms-input-placeholder {
+        color: transparent;
+    }
+    .fecha-wrapper input[type="date"]::placeholder {
+        color: transparent;
     }
     .search-btn {
         width: 100%;
