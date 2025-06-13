@@ -8,7 +8,7 @@ def guardar_datos(data):
     os.makedirs(ruta_data, exist_ok=True)
 
     ruta_archivo = os.path.join(ruta_data, "datos_busqueda.csv")
-    campos = ["fecha", "hora", "ubicacion", "tipo_cancha"]
+    campos = ["fecha", "hora", "ubicacion", "tipo_cancha", "correo"]
 
     # Verifica si el archivo no existe o está vacío
     necesita_cabecera = not os.path.exists(ruta_archivo) or os.stat(ruta_archivo).st_size == 0

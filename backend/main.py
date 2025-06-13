@@ -31,14 +31,16 @@ async def buscar(
     fecha: str = Form(...),
     ubicacion: str = Form(...),
     tipo_cancha: str = Form(...),
-    hora: str = Form(...)
+    hora: str = Form(...),
+    correo: str = Form(...)
 ):
     try:
         data = {
             "fecha": fecha,
             "ubicacion": ubicacion,
             "tipo_cancha": tipo_cancha,
-            "hora": hora
+            "hora": hora,
+            "correo": correo
         }
         print("Recibido:", data)
 
