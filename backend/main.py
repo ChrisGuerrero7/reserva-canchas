@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Form
 from fastapi.responses import JSONResponse, FileResponse
 from routers.buscador import guardar_datos
+from routers.correo import enviar_correo
 from fastapi.middleware.cors import CORSMiddleware
 import csv
 import os
@@ -45,6 +46,8 @@ async def buscar(
         print("Recibido:", data)
 
         guardar_datos(data)  # ✅ Guarda en el archivo CSV
+
+        enviar_correo(correo)
 
         return JSONResponse(content={"mensaje": "Datos recibidos correctamente"}, status_code=200)
     except Exception as e:
