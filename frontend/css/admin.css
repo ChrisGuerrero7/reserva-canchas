@@ -1,0 +1,430 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f6fa;
+}
+
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 70px;
+    background-color: #2b6cb0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0.5rem;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.sidebar h2 {
+    margin-bottom: 2.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.sidebar nav ul li {
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.sidebar nav ul li i {
+    font-size: 1.4rem;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar nav ul li span {
+    display: none;
+    position: absolute;
+    left: 100%;
+    background-color: #2c5282;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-left: 10px;
+    font-size: 0.9rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.sidebar nav ul li:hover span {
+    display: block;
+}
+
+.sidebar nav ul li:hover {
+    background-color: #2c5282;
+}
+
+.sidebar nav ul li.active {
+    background-color: #2c5282;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.user-section {
+    margin-top: auto;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-section .user-item {
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.user-section .user-item i {
+    font-size: 1.4rem;
+    width: 24px;
+    text-align: center;
+}
+
+.user-section .user-item span {
+    display: none;
+    position: absolute;
+    left: 100%;
+    background-color: #2c5282;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-left: 10px;
+    font-size: 0.9rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.user-section .user-item:hover span {
+    display: block;
+}
+
+.user-section .user-item:hover {
+    background-color: #2c5282;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    background-color: #ffffff;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para la vista de perfil */
+.perfil-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #2b6cb0;
+}
+
+.perfil-header h2 {
+    color: #2b6cb0;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.perfil-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.perfil-column {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.column-title {
+    color: #2b6cb0;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 1.3rem;
+}
+
+/* Estilos para la primera columna (Información) */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.info-item:hover {
+    transform: translateX(5px);
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #2b6cb0;
+    width: 24px;
+    text-align: center;
+}
+
+.info-details h3 {
+    margin: 0 0 0.5rem 0;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+
+.info-details p {
+    margin: 0;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+/* Estilos para la segunda columna (Horarios) */
+.schedule-table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.schedule-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.schedule-table th {
+    background-color: #2b6cb0;
+    color: white;
+    font-weight: 500;
+}
+
+.schedule-table tr:last-child td {
+    border-bottom: none;
+}
+
+.schedule-table tr:hover td {
+    background-color: #f7fafc;
+}
+
+/* Estilos para la tercera columna (Servicios) */
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: #fff;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.service-item:hover {
+    background-color: #f7fafc;
+}
+
+.service-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #2b6cb0;
+}
+
+.service-item label {
+    color: #4a5568;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.error {
+    color: #e53e3e;
+    padding: 1rem;
+    text-align: center;
+    background-color: #fff5f5;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+/* Estilos para la vista de calendario */
+.calendario-container {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #2b6cb0;
+}
+
+.calendario-header h1 {
+    color: #2b6cb0;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.date-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.date-nav-btn {
+    background-color: #2b6cb0;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.date-nav-btn:hover {
+    background-color: #2c5282;
+}
+
+.date-input {
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #2d3748;
+}
+
+.calendario-table-container {
+    overflow-x: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.calendario-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.calendario-table th {
+    background-color: #2b6cb0;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 500;
+}
+
+.calendario-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.calendario-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Columnas específicas */
+.time-column {
+    width: 150px;
+}
+
+.court-column {
+    width: 200px;
+}
+
+.spacer-column {
+    width: auto;
+}
+
+.time-slot {
+    font-weight: 500;
+    color: #4a5568;
+    background-color: #f8fafc;
+}
+
+.court-slot {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    height: 40px;
+}
+
+.court-slot.available {
+    background-color: #c6f6d5;
+    color: #2f855a;
+}
+
+.court-slot.available:hover {
+    background-color: #9ae6b4;
+}
+
+.court-slot.reserved {
+    background-color: #fed7d7;
+    color: #c53030;
+}
+
+.court-slot.reserved:hover {
+    background-color: #feb2b2;
+}
+
+.court-slot:hover {
+    transform: scale(1.02);
+}
+
+.spacer-slot {
+    background-color: #f8fafc;
+}

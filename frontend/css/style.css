@@ -281,6 +281,7 @@ body {
         margin-bottom: 0;
     }
     .fecha-label {
+        display: block;
         position: absolute;
         left: 18px;
         top: 50%;

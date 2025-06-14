@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel de Gestión</title>
+  <link rel="stylesheet" href="./css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>SX</h2>
+      <nav>
+        <ul>
+          <li class="active" data-view="home"><i class="fas fa-home"></i><span>Inicio</span></li>
+          <li data-view="calendario"><i class="fas fa-calendar-alt"></i><span>Calendario</span></li>
+          <li data-view="ajustes"><i class="fas fa-cog"></i><span>Ajustes</span></li>
+        </ul>
+      </nav>
+      <div class="user-section">
+        <div class="user-item" id="loginButton">
+          <i class="fas fa-user"></i>
+          <span>Perfil</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div id="contenido-admin">
+        <!-- Aquí se carga dinámicamente el contenido -->
+      </div>
+    </main>
+  </div>
+
+  <script src="./js/admin.js"></script>
+</body>
+</html>

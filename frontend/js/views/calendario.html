@@ -1,0 +1,215 @@
+<div class="calendario-container">
+  <div class="calendario-header">
+    <h1>Calendario de Reservas</h1>
+    
+    <div class="date-selector">
+      <button class="date-nav-btn" id="prevDay">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      
+      <div class="current-date">
+        <input type="date" id="selectedDate" class="date-input">
+      </div>
+      
+      <button class="date-nav-btn" id="nextDay">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="calendario-table-container">
+    <table class="calendario-table">
+      <thead>
+        <tr>
+          <th class="time-column">Hora</th>
+          <th class="court-column">Cancha 1</th>
+          <th class="court-column">Cancha 2</th>
+          <th class="spacer-column"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Horario de 8:00 AM a 10:00 PM en intervalos de 30 minutos -->
+        <tr>
+          <td class="time-slot">08:00 - 08:30</td>
+          <td class="court-slot available" data-court="1" data-time="08:00"></td>
+          <td class="court-slot available" data-court="2" data-time="08:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">08:30 - 09:00</td>
+          <td class="court-slot available" data-court="1" data-time="08:30"></td>
+          <td class="court-slot available" data-court="2" data-time="08:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">09:00 - 09:30</td>
+          <td class="court-slot available" data-court="1" data-time="09:00"></td>
+          <td class="court-slot available" data-court="2" data-time="09:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">09:30 - 10:00</td>
+          <td class="court-slot available" data-court="1" data-time="09:30"></td>
+          <td class="court-slot available" data-court="2" data-time="09:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">10:00 - 10:30</td>
+          <td class="court-slot available" data-court="1" data-time="10:00"></td>
+          <td class="court-slot available" data-court="2" data-time="10:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">10:30 - 11:00</td>
+          <td class="court-slot available" data-court="1" data-time="10:30"></td>
+          <td class="court-slot available" data-court="2" data-time="10:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">11:00 - 11:30</td>
+          <td class="court-slot available" data-court="1" data-time="11:00"></td>
+          <td class="court-slot available" data-court="2" data-time="11:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">11:30 - 12:00</td>
+          <td class="court-slot available" data-court="1" data-time="11:30"></td>
+          <td class="court-slot available" data-court="2" data-time="11:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">12:00 - 12:30</td>
+          <td class="court-slot available" data-court="1" data-time="12:00"></td>
+          <td class="court-slot available" data-court="2" data-time="12:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">12:30 - 13:00</td>
+          <td class="court-slot available" data-court="1" data-time="12:30"></td>
+          <td class="court-slot available" data-court="2" data-time="12:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">13:00 - 13:30</td>
+          <td class="court-slot available" data-court="1" data-time="13:00"></td>
+          <td class="court-slot available" data-court="2" data-time="13:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">13:30 - 14:00</td>
+          <td class="court-slot available" data-court="1" data-time="13:30"></td>
+          <td class="court-slot available" data-court="2" data-time="13:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">14:00 - 14:30</td>
+          <td class="court-slot available" data-court="1" data-time="14:00"></td>
+          <td class="court-slot available" data-court="2" data-time="14:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">14:30 - 15:00</td>
+          <td class="court-slot available" data-court="1" data-time="14:30"></td>
+          <td class="court-slot available" data-court="2" data-time="14:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">15:00 - 15:30</td>
+          <td class="court-slot available" data-court="1" data-time="15:00"></td>
+          <td class="court-slot available" data-court="2" data-time="15:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">15:30 - 16:00</td>
+          <td class="court-slot available" data-court="1" data-time="15:30"></td>
+          <td class="court-slot available" data-court="2" data-time="15:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">16:00 - 16:30</td>
+          <td class="court-slot available" data-court="1" data-time="16:00"></td>
+          <td class="court-slot available" data-court="2" data-time="16:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">16:30 - 17:00</td>
+          <td class="court-slot available" data-court="1" data-time="16:30"></td>
+          <td class="court-slot available" data-court="2" data-time="16:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">17:00 - 17:30</td>
+          <td class="court-slot available" data-court="1" data-time="17:00"></td>
+          <td class="court-slot available" data-court="2" data-time="17:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">17:30 - 18:00</td>
+          <td class="court-slot available" data-court="1" data-time="17:30"></td>
+          <td class="court-slot available" data-court="2" data-time="17:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">18:00 - 18:30</td>
+          <td class="court-slot available" data-court="1" data-time="18:00"></td>
+          <td class="court-slot available" data-court="2" data-time="18:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">18:30 - 19:00</td>
+          <td class="court-slot available" data-court="1" data-time="18:30"></td>
+          <td class="court-slot available" data-court="2" data-time="18:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">19:00 - 19:30</td>
+          <td class="court-slot reserved" data-court="1" data-time="19:00">Juan Pérez</td>
+          <td class="court-slot available" data-court="2" data-time="19:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">19:30 - 20:00</td>
+          <td class="court-slot reserved" data-court="1" data-time="19:30">Juan Pérez</td>
+          <td class="court-slot available" data-court="2" data-time="19:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">20:00 - 20:30</td>
+          <td class="court-slot available" data-court="1" data-time="20:00"></td>
+          <td class="court-slot available" data-court="2" data-time="20:00"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">20:30 - 21:00</td>
+          <td class="court-slot available" data-court="1" data-time="20:30"></td>
+          <td class="court-slot available" data-court="2" data-time="20:30"></td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">21:00 - 21:30</td>
+          <td class="court-slot available" data-court="1" data-time="21:00"></td>
+          <td class="court-slot reserved" data-court="2" data-time="21:00">María García</td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">21:30 - 22:00</td>
+          <td class="court-slot available" data-court="1" data-time="21:30"></td>
+          <td class="court-slot reserved" data-court="2" data-time="21:30">María García</td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">22:00 - 22:30</td>
+          <td class="court-slot available" data-court="1" data-time="22:00"></td>
+          <td class="court-slot reserved" data-court="2" data-time="22:00">María García</td>
+          <td class="spacer-slot"></td>
+        </tr>
+        <tr>
+          <td class="time-slot">22:30 - 23:00</td>
+          <td class="court-slot available" data-court="1" data-time="22:30"></td>
+          <td class="court-slot reserved" data-court="2" data-time="22:30">María García</td>
+          <td class="spacer-slot"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
