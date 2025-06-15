@@ -69,7 +69,7 @@ function initCalendar() {
 
     // Sample reservations data
     const reservations = {
-        [todayString]: {
+        '2025-06-15': {
             1: {
                 '19:00': 'Juan Pérez',
                 '19:30': 'Juan Pérez'
@@ -80,6 +80,12 @@ function initCalendar() {
                 '22:00': 'María García',
                 '22:30': 'María García'
             }
+        },
+        '2025-06-16': {
+            1: {
+                '10:00': 'Christhofer Guerrero',
+                '10:30': 'Christhofer Guerrero'
+            }
         }
     };
 
@@ -87,6 +93,7 @@ function initCalendar() {
     function loadReservations() {
         const selectedDate = dateInput.value;
         console.log('Cargando reservas para:', selectedDate);
+        console.log('Reservas disponibles:', reservations);
 
         // Reset all slots to available
         courtSlots.forEach(slot => {
@@ -97,16 +104,31 @@ function initCalendar() {
 
         // Apply reservations for the selected date
         if (reservations[selectedDate]) {
+            console.log('Reservas encontradas para la fecha:', selectedDate);
             Object.entries(reservations[selectedDate]).forEach(([court, times]) => {
+                console.log(`Procesando reservas para cancha ${court}:`, times);
                 Object.entries(times).forEach(([time, user]) => {
-                    const slot = document.querySelector(`.court-slot[data-court="${court}"][data-time="${time}"]`);
+                    const selector = `.court-slot[data-court="${court}"][data-time="${time}"]`;
+                    console.log('Buscando slot con selector:', selector);
+                    const slot = document.querySelector(selector);
                     if (slot) {
                         slot.classList.remove('available');
                         slot.classList.add('reserved');
                         slot.textContent = user;
+                        console.log(`Reserva aplicada: Cancha ${court}, Hora ${time}, Usuario ${user}`);
+                    } else {
+                        console.warn(`No se encontró el slot para cancha ${court}, hora ${time}`);
+                        // Listar todos los slots disponibles para depuración
+                        const allSlots = document.querySelectorAll('.court-slot');
+                        console.log('Slots disponibles:', Array.from(allSlots).map(slot => ({
+                            court: slot.dataset.court,
+                            time: slot.dataset.time
+                        })));
                     }
                 });
             });
+        } else {
+            console.log('No hay reservas para la fecha:', selectedDate);
         }
     }
 

@@ -1,4 +1,86 @@
-<h1>Resumen de tus canchas</h1>
-<div id="resumen-canchas">
-  <p>Cargando información de tus canchas...</p>
+<div class="home-container">
+    <h1 class="court-name">Cancha Principal</h1>
+    
+    <!-- Cards de estadísticas -->
+    <div class="stats-cards">
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-calendar-day"></i>
+            </div>
+            <div class="stat-content">
+                <h3>Reservas Hoy</h3>
+                <p class="stat-number">12</p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-calendar-week"></i>
+            </div>
+            <div class="stat-content">
+                <h3>Reservas Semana</h3>
+                <p class="stat-number">45</p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-chart-pie"></i>
+            </div>
+            <div class="stat-content">
+                <h3>Tasa de Ocupación</h3>
+                <div class="occupation-charts">
+                    <div class="chart-container">
+                        <canvas id="occupationChart1"></canvas>
+                        <span>Cancha 1</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="occupationChart2"></canvas>
+                        <span>Cancha 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gráfico de reservas por día -->
+    <div class="reservations-chart">
+        <h2>Reservas por Día - Semana Actual</h2>
+        <canvas id="weeklyReservationsChart"></canvas>
+    </div>
+
+    <!-- Tabla de próximas reservas -->
+    <div class="upcoming-reservations">
+        <h2>Próximas Reservas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Hora Inicio</th>
+                    <th>Hora Fin</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody id="upcoming-reservations-list">
+                <tr>
+                    <td>Juan Pérez</td>
+                    <td>19:00</td>
+                    <td>20:00</td>
+                    <td>15/06/2025</td>
+                </tr>
+                <tr>
+                    <td>María García</td>
+                    <td>21:00</td>
+                    <td>22:30</td>
+                    <td>15/06/2025</td>
+                </tr>
+                <tr>
+                    <td>Christhofer Guerrero</td>
+                    <td>10:00</td>
+                    <td>11:00</td>
+                    <td>16/06/2025</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
