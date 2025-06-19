@@ -2,6 +2,8 @@
 :root {
     --verde: #2ecc71;
     --verde-oscuro: #27ae60;
+    --azul-claro: #2761ae;
+    --azul-bajo: #1a5a9a;
     --azul-oscuro: #1e2a38;
     --gris-claro: #ecf0f1;
     --texto: #ffffff;
@@ -164,16 +166,38 @@
     border: 1px solid var(--borde);
   }
   
-  form button {
+  button.agregar-jugador {
     grid-column: span 2;
     background-color: var(--verde);
     color: #fff;
     cursor: pointer;
     transition: background 0.3s;
   }
+  button.formar-equipos {
+    grid-column: span 2;
+    background-color: var(--azul-claro);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
   
-  form button:hover {
+  button.agregar-jugador:hover {
     background-color: var(--verde-oscuro);
+  }
+
+  button.formar-equipos:hover {
+    background-color: var(--azul-bajo);
+  }
+
+  .acciones-formulario {
+    grid-column: span 2;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  
+  .acciones-formulario button {
+    flex: 1;
   }
   
   /* ====== Tabla de jugadores ====== */
