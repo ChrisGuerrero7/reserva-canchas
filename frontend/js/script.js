@@ -48,12 +48,28 @@ window.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-// Toggle del menú en móviles
-const toggleBtn = document.querySelector(".menu-toggle");
-const navRight = document.querySelector(".nav-right");
+// Mobile menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navRight = document.querySelector('.nav-right');
 
-toggleBtn.addEventListener("click", () => {
-  navRight.classList.toggle("show");
+// Toggle menu on button click
+menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navRight.classList.toggle('active');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!menuToggle.contains(e.target) && !navRight.contains(e.target)) {
+        navRight.classList.remove('active');
+    }
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        navRight.classList.remove('active');
+    }
 });
 
 // Mostrar placeholder personalizado en el campo de fecha solo en móvil

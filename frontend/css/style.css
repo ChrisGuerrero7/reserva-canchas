@@ -140,8 +140,10 @@ body {
 
 /* Enlace derecho */
 .nav-right {
-  margin-right: 20px;
-  
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
 }
 
 /* Menú toggle (hamburguesa) */
@@ -158,11 +160,14 @@ body {
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 .nav-right .add-court-link:hover {
-  color: #32cd32;
+  color: var(--verde);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .modal {
@@ -338,29 +343,28 @@ body {
     }
 
     .nav-right {
+        display: none;
         position: absolute;
         top: 60px;
-        right: 0;
-        background: rgba(0, 0, 0, 0.85);
+        left: 0;
         width: 100%;
-        display: none;
+        background: rgba(30, 42, 56, 0.95);
+        backdrop-filter: blur(10px);
         flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
+        padding: 1rem;
+        gap: 0.5rem;
+        border-bottom: 1px solid var(--borde);
+        z-index: 1000;
     }
 
-    .nav-right.show {
+    .nav-right.active {
         display: flex;
     }
 
     .nav-right .add-court-link {
-        color: white;
-        padding: 10px;
-        font-size: 18px;
-    }
-
-    .nav-right .add-court-link:hover {
-        color: #32cd32;
+        width: 100%;
+        text-align: center;
+        padding: 12px;
     }
 
     .modal-content {
@@ -423,6 +427,25 @@ body {
 
     .modal-content {
         padding: 1.2rem;
+    }
+  }
+  
+  /* Desktop menu */
+  @media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-right {
+        display: flex;
+        position: relative;
+        background: none;
+        padding: 0;
+        border: none;
+    }
+
+    .nav-right .add-court-link {
+        white-space: nowrap;
     }
   }
   

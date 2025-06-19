@@ -219,21 +219,24 @@ function loadUpcomingReservations() {
         const upcomingReservations = [
             {
                 user: 'Juan Pérez',
+                date: '15/06/2025',
                 startTime: '19:00',
                 endTime: '20:00',
-                date: '15/06/2025'
+                court: 'Cancha 1'
             },
             {
                 user: 'María García',
+                date: '15/06/2025',
                 startTime: '21:00',
                 endTime: '22:30',
-                date: '15/06/2025'
+                court: 'Cancha 2'
             },
             {
                 user: 'Christhofer Guerrero',
+                date: '16/06/2025',
                 startTime: '10:00',
                 endTime: '11:00',
-                date: '16/06/2025'
+                court: 'Cancha 1'
             }
         ];
 
@@ -243,9 +246,10 @@ function loadUpcomingReservations() {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>${reservation.user}</td>
+                <td>${reservation.date}</td>
                 <td>${reservation.startTime}</td>
                 <td>${reservation.endTime}</td>
-                <td>${reservation.date}</td>
+                <td>${reservation.court}</td>
             `;
             tbody.appendChild(tr);
         });

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Armar Equipos</title>
+  <link rel="stylesheet" href="css/equipos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<!-- Barra de navegación responsive -->
+<nav class="navbar">
+    <div class="nav-left">
+      <a href="login.html" class="user-icon">
+        <i class="fa-solid fa-user"></i>
+      </a>
+    </div>
+    <div class="navbar-center">
+      <img src="sportx_logo.png" alt="Sport X" class="name">
+    </div>
+    <button class="menu-toggle" aria-label="Abrir menú">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-right">
+      <a href="index.html" class="add-court-link">Buscar cancha</a>
+    </div>
+</nav>
+<body>
+
+  <main class="container">
+    <h1>Armar Equipos</h1>
+
+    <section class="form-section">
+      <form id="form-jugador">
+        <input type="text" id="nombre" placeholder="Nombre del jugador" required />
+
+        <select id="posicion" required>
+          <option value="">Selecciona la posición</option>
+          <option value="arquero">Arquero</option>
+          <option value="defensa">Defensa</option>
+          <option value="medio">Medio</option>
+          <option value="delantero">Delantero</option>
+          <option value="libre">Libre</option>
+        </select>
+
+        <select id="nivel" required>
+          <option value="">Nivel de juego</option>
+          <option value="1">1 - Principiante</option>
+          <option value="2">2</option>
+          <option value="3">3 - Intermedio</option>
+          <option value="4">4</option>
+          <option value="5">5 - Avanzado</option>
+        </select>
+
+        <select id="genero" required>
+          <option value="">Género</option>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+        </select>
+
+        <button type="submit">Agregar Jugador</button>
+      </form>
+    </section>
+
+    <section class="lista-jugadores">
+      <h2>Jugadores agregados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Posición</th>
+            <th>Nivel</th>
+            <th>Género</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-jugadores"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/equipos.js"></script>
+</body>
+</html>

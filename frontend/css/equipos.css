@@ -1,0 +1,260 @@
+/* ====== Variables ====== */
+:root {
+    --verde: #2ecc71;
+    --verde-oscuro: #27ae60;
+    --azul-oscuro: #1e2a38;
+    --gris-claro: #ecf0f1;
+    --texto: #ffffff;
+    --texto-secundario: #bdc3c7;
+    --borde: #34495e;
+  }
+  
+  /* ====== Base ====== */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--azul-oscuro);
+    color: var(--texto);
+    min-height: 100vh;
+    padding-top: 60px; /* Add space for fixed navbar */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* NAVBAR BASE */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(30, 42, 56, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 999;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--borde);
+  }
+  
+  /* Elementos */
+
+  /* Logo centrado */
+  .logo {
+    width: 150px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .name {
+    color: rgb(19, 208, 16);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+  }
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-icon {
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .user-icon i {
+    font-size: 20px;
+  }
+
+  .user-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--verde);
+  }
+
+  .navbar-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-center .name {
+    height: 40px;
+    width: auto;
+  }
+  
+  /* Enlace derecho */
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Menú toggle (hamburguesa) */
+  .menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    display: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-right .add-court-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-right .add-court-link:hover {
+    color: var(--verde);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  h1, h2 {
+    color: var(--verde);
+    margin-bottom: 1rem;
+  }
+  
+  /* ====== Formulario ====== */
+  form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    background-color: #243447;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--borde);
+    margin-bottom: 2rem;
+  }
+  
+  form input,
+  form select,
+  form button {
+    padding: 0.6rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  form input,
+  form select {
+    background-color: var(--azul-oscuro);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+  }
+  
+  form button {
+    grid-column: span 2;
+    background-color: var(--verde);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  form button:hover {
+    background-color: var(--verde-oscuro);
+  }
+  
+  /* ====== Tabla de jugadores ====== */
+  .lista-jugadores table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2c3e50;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .lista-jugadores th,
+  .lista-jugadores td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--borde);
+  }
+  
+  .lista-jugadores th {
+    background-color: #34495e;
+    color: var(--texto-secundario);
+  }
+  
+  .lista-jugadores tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-right {
+      display: none;
+    }
+
+    .navbar-center .name {
+      height: 30px;
+    }
+
+    .container {
+      padding: 1rem;
+    }
+
+    form {
+      grid-template-columns: 1fr;
+    }
+
+    .lista-jugadores {
+      overflow-x: auto;
+    }
+
+    .lista-jugadores table {
+      min-width: 600px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 0;
+      padding-top: 60px;
+    }
+
+    .container {
+      padding: 1rem;
+    }
+
+    .navbar {
+      padding: 0 10px;
+    }
+
+    .navbar-center .name {
+      height: 25px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+  }

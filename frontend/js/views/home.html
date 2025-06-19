@@ -43,12 +43,6 @@
         </div>
     </div>
 
-    <!-- Gráfico de reservas por día -->
-    <div class="reservations-chart">
-        <h2>Reservas por Día - Semana Actual</h2>
-        <canvas id="weeklyReservationsChart"></canvas>
-    </div>
-
     <!-- Tabla de próximas reservas -->
     <div class="upcoming-reservations">
         <h2>Próximas Reservas</h2>
@@ -56,31 +50,43 @@
             <thead>
                 <tr>
                     <th>Usuario</th>
+                    <th>Fecha</th>
                     <th>Hora Inicio</th>
                     <th>Hora Fin</th>
-                    <th>Fecha</th>
+                    <th>Cancha</th>
                 </tr>
             </thead>
             <tbody id="upcoming-reservations-list">
                 <tr>
                     <td>Juan Pérez</td>
+                    <td>15/06/2025</td>
                     <td>19:00</td>
                     <td>20:00</td>
-                    <td>15/06/2025</td>
+                    <td>Cancha 1</td>
                 </tr>
                 <tr>
                     <td>María García</td>
+                    <td>15/06/2025</td>
                     <td>21:00</td>
                     <td>22:30</td>
-                    <td>15/06/2025</td>
+                    <td>Cancha 2</td>
                 </tr>
                 <tr>
                     <td>Christhofer Guerrero</td>
+                    <td>16/06/2025</td>
                     <td>10:00</td>
                     <td>11:00</td>
-                    <td>16/06/2025</td>
+                    <td>Cancha 1</td>
                 </tr>
             </tbody>
         </table>
     </div>
+
+    <!-- Gráfico de reservas por día -->
+    <div class="reservations-chart" style="margin-top: 2rem;">
+        <h2>Reservas por Día - Semana Actual</h2>
+        <canvas id="weeklyReservationsChart"></canvas>
+    </div>
+
+    
 </div>
