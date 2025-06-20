@@ -112,31 +112,64 @@ function formarEquipos() {
     mostrarEquipos(equipoA, equipoB);
 }
 function mostrarEquipos(a, b) {
-    // Eliminar resultados anteriores si existen
-    const anterior = document.getElementById("resultado-equipos");
-    if (anterior) anterior.remove();
+    // Eliminar modal anterior si existe
+    const modalAnterior = document.getElementById("modal-equipos");
+    if (modalAnterior) modalAnterior.remove();
   
-    const resultado = document.createElement("div");
-    resultado.id = "resultado-equipos";
-    resultado.style.marginTop = "2rem";
-    resultado.style.background = "#1e2a38";
-    resultado.style.padding = "1rem";
-    resultado.style.borderRadius = "10px";
-    resultado.innerHTML = `
-      <h2>Equipos formados</h2>
-      <table style="width: 100%; border-collapse: collapse; text-align: left;">
-        <thead>
-          <tr>
-            <th style="padding: 0.5rem; border-bottom: 1px solid #444;">Equipo A</th>
-            <th style="padding: 0.5rem; border-bottom: 1px solid #444;">Equipo B</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${crearFilasTabla(a, b)}
-        </tbody>
-      </table>
+    // Crear el modal
+    const modal = document.createElement("div");
+    modal.id = "modal-equipos";
+    modal.className = "modal-overlay";
+    
+    const modalContent = document.createElement("div");
+    modalContent.className = "modal-content";
+    
+    // Calcular totales de nivel
+    const totalA = a.reduce((sum, jugador) => sum + parseInt(jugador.nivel), 0);
+    const totalB = b.reduce((sum, jugador) => sum + parseInt(jugador.nivel), 0);
+    
+    modalContent.innerHTML = `
+      <div class="modal-header">
+        <h2>Equipos Formados</h2>
+        <button class="close-btn" onclick="cerrarModal()">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="equipos-info">
+          <div class="equipo-stats">
+            <span class="equipo-nombre">Equipo A</span>
+            <span class="equipo-total">Total: ${totalA}</span>
+          </div>
+          <div class="equipo-stats">
+            <span class="equipo-nombre">Equipo B</span>
+            <span class="equipo-total">Total: ${totalB}</span>
+          </div>
+        </div>
+        
+        <table class="equipos-table">
+          <tbody>
+            ${crearFilasTabla(a, b)}
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn-guardar" onclick="guardarEquipos()">
+          <i class="fa-solid fa-save"></i>
+          Guardar
+        </button>
+      </div>
     `;
-    document.querySelector(".container").appendChild(resultado);
+    
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    // Mostrar modal con animación
+    setTimeout(() => {
+        modal.classList.add("show");
+    }, 10);
 }
   
 function crearFilasTabla(a, b) {
@@ -144,12 +177,12 @@ function crearFilasTabla(a, b) {
     let filas = "";
   
     for (let i = 0; i < maxLen; i++) {
-      const jugadorA = a[i] ? `${a[i].nombre} (${a[i].nivel})` : "";
-      const jugadorB = b[i] ? `${b[i].nombre} (${b[i].nivel})` : "";
+      const jugadorA = a[i] ? `${a[i].nombre}` : "";
+      const jugadorB = b[i] ? `${b[i].nombre}` : "";
       filas += `
         <tr>
-          <td style="padding: 0.5rem; border-bottom: 1px solid #333;">${jugadorA}</td>
-          <td style="padding: 0.5rem; border-bottom: 1px solid #333;">${jugadorB}</td>
+          <td style="padding: 0.5rem; border-bottom: 1px solid #333; text-align: center;">${jugadorA}</td>
+          <td style="padding: 0.5rem; border-bottom: 1px solid #333; text-align: center;">${jugadorB}</td>
         </tr>
       `;
     }
@@ -159,3 +192,27 @@ function crearFilasTabla(a, b) {
   
   // Botón para formar equipos
   btnFormar.addEventListener("click", formarEquipos);
+
+function cerrarModal() {
+    const modal = document.getElementById("modal-equipos");
+    if (modal) {
+        modal.classList.remove("show");
+        setTimeout(() => {
+            modal.remove();
+        }, 300);
+    }
+}
+
+function guardarEquipos() {
+    // Aquí puedes agregar la lógica para guardar los equipos
+    alert("Equipos guardados exitosamente!");
+    cerrarModal();
+}
+
+// Cerrar modal al hacer click fuera de él
+document.addEventListener("click", (e) => {
+    const modal = document.getElementById("modal-equipos");
+    if (modal && e.target === modal) {
+        cerrarModal();
+    }
+});
