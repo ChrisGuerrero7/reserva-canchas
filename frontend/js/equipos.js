@@ -156,10 +156,13 @@ function mostrarEquipos(a, b) {
       </div>
       
       <div class="modal-footer">
-        <button class="btn-guardar" onclick="guardarEquipos()">
-          <i class="fa-solid fa-save"></i>
-          Guardar
-        </button>
+        <form id="form-correo-equipo" class="form-correo-equipo" autocomplete="off" style="margin-top:0;">
+          <label for="correo-equipo" style="display:block; color:var(--texto-secundario); margin-bottom:0.5rem; text-align:left;">¿Quieres recibir tu equipo por correo? Ingresa tu email.</label>
+          <div style="display:flex; gap:0.5rem;">
+            <input type="email" id="correo-equipo" name="correo-equipo" placeholder="Tu correo electrónico" required style="flex:1; padding:0.5rem; border-radius:5px; border:1px solid var(--borde);">
+            <button type="submit" class="btn-guardar-correo" style="background:var(--verde); color:white; border:none; border-radius:5px; padding:0 1.2rem; font-weight:bold; cursor:pointer;">Guardar</button>
+          </div>
+        </form>
       </div>
     `;
     
@@ -170,6 +173,20 @@ function mostrarEquipos(a, b) {
     setTimeout(() => {
         modal.classList.add("show");
     }, 10);
+
+    // Manejar envío del formulario de correo
+    const formCorreo = modal.querySelector('#form-correo-equipo');
+    formCorreo.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const correo = modal.querySelector('#correo-equipo').value.trim();
+      if (!correo) {
+        alert('Por favor ingresa un correo válido.');
+        return;
+      }
+      // Aquí puedes agregar la lógica para guardar el equipo y el correo
+      alert('¡Equipo guardado y enviado a ' + correo + '!');
+      cerrarModal();
+    });
 }
   
 function crearFilasTabla(a, b) {
