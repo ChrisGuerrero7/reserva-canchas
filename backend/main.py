@@ -1,7 +1,7 @@
-from fastapi import FastAPI, Form
+from fastapi import FastAPI, Form, Request
 from fastapi.responses import JSONResponse, FileResponse
 from routers.buscador import guardar_datos
-from routers.correo import enviar_correo
+from routers.correo import enviar_correo, enviar_equipos_admin
 from fastapi.middleware.cors import CORSMiddleware
 import csv
 import os
@@ -71,3 +71,15 @@ def descargar_csv():
         return FileResponse(csv_path, media_type='text/csv', filename="datos_busqueda.csv")
     else:
         return JSONResponse(content={"error": "Archivo no encontrado"}, status_code=404)
+
+@app.post("/api/enviar-equipos")
+async def enviar_equipos(request: Request):
+    try:
+        data = await request.json()
+        jugadores = data.get("jugadores", [])
+        equipo_a = data.get("equipoA", [])
+        equipo_b = data.get("equipoB", [])
+        enviar_equipos_admin(jugadores, equipo_a, equipo_b)
+        return JSONResponse(content={"mensaje": "Equipos enviados correctamente"}, status_code=200)
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
